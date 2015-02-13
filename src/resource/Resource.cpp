@@ -23,28 +23,76 @@
 #include "resource/Resource.h"
 
 #include "SDL.h"
+#include "boost/optional.hpp"
+using boost::optional;
+#include "Exceptions.h"
 
 namespace sdl2wrap {
 namespace resource {
 
 
+namespace {
+constexpr const char* cREAD_MODE = "r";
+
+constexpr const char* cWRITE_MODE = "r+";
+}
+
+
+
 // ====== public: ======
 
-Resource::Resource() noexcept = default;
+Resource Resource::fromFile(const std::string& path)
+{
+	SDL_RWops* rwOps = SDL_RWFromFile(path.c_str(), cWRITE_MODE);
+	if (rwOps == nullptr) {
+		throw azzu::utils::sdlError("Could not read file.");
+	}
+	return Resource(rwOps);
+}
 
 Resource::Resource(const Resource&) noexcept = delete;
 
 Resource::Resource(Resource&&) noexcept = default;
 
-Resource::~Resource() noexcept = default;
+Resource::~Resource() noexcept
+{
+	SDL_FreeRW(handle_);
+}
 
 Resource& Resource::operator=(const Resource&) noexcept = delete;
 
 Resource& Resource::operator=(Resource&&) noexcept = default;
 
+optional<int64_t> Resource::getSize() const
+{
+	auto size = SDL_RWsize(handle_);
+
+	if (size == -1) return boost::none;
+
+	if (size < -1) {
+		throw azzu::utils::sdlError("Error while retrieving the size of the resource.");
+	}
+
+	return size;
+}
+
+Resource::operator SDL_RWops&()
+{
+	return *handle_;
+}
+
+Resource::operator SDL_RWops&() const
+{
+	return *handle_;
+}
+
 // ====== protected: ======
 
 // ====== private: ======
+
+Resource::Resource(SDL_RWops* handle) noexcept : handle_(handle)
+{
+}
 
 // ====== freestanding: ======
 

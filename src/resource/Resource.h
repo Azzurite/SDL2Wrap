@@ -23,6 +23,7 @@
 #pragma once
 
 #include "SDL.h"
+#include "boost/optional.hpp"
 
 namespace sdl2wrap {
 namespace resource {
@@ -32,10 +33,7 @@ class Resource
 {
 public:
 
-	/*!
-	 * @brief Default constructor.
-	 */
-	Resource() noexcept;
+	Resource fromFile(const std::string& path);
 
 	/*!
 	 * @brief Default copy constructor.
@@ -62,26 +60,27 @@ public:
 	 */
 	Resource& operator=(Resource&&) noexcept;
 
+
+	/*!
+	 * @brief gets the size of the data stream
+	 *
+	 * Loads the resource if it has not been loaded yet.
+	 *
+	 * @return the size of the data stream or -1 if the resource
+	 */
+	boost::optional<int64_t> getSize() const;
+
 	operator SDL_RWops&();
 
 	operator SDL_RWops&() const;
 
-	/*!
-	 * @brief gets the size of the data stream
-	 * @return the size of the data stream or -1 if the resource
-	 */
-	int64_t getSize() const;
-
-protected:
-
-	virtual SDL_RWops* load() = 0;
-
-	virtual SDL_RWops* load() const = 0;
-
 
 private:
 
-	SDL_RWops* handle_;
+	mutable SDL_RWops* handle_;
+
+	Resource(SDL_RWops* handle) noexcept;
+
 
 };
 
