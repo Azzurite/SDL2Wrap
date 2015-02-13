@@ -44,4 +44,3 @@ constexpr int cSDL2Wrap_PATCH_VERSION = 0;
 #include "video/Window.h"
 #include "resource/FileResource.h"
 #include "resource/Resource.h"
-#include "resource/ResourceManager.h"
