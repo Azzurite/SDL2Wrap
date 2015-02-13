@@ -32,7 +32,7 @@ using namespace std::string_literals;
 #include "video/Surface.h"
 #include "video/Texture.h"
 #include "video/Rect.h"
-#include "utils/Exceptions.h"
+#include "Exceptions.h"
 
 namespace sdl2wrap {
 namespace video {

@@ -28,7 +28,7 @@ using namespace std::string_literals;
 #include "SDL.h"
 
 #include "video/Texture.h"
-#include "utils/Exceptions.h"
+#include "Exceptions.h"
 
 namespace sdl2wrap {
 namespace video {

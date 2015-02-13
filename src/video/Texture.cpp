@@ -28,7 +28,7 @@
 #include "SDL.h"
 
 #include "video/Renderer.h"
-#include "utils/Exceptions.h"
+#include "Exceptions.h"
 #include "Surface.h"
 
 namespace sdl2wrap {
