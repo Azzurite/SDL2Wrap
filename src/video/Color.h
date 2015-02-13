@@ -105,5 +105,5 @@ constexpr bool operator==(const Color& lhs, const Color& rhs)
 }
 
 
-}
-} // namespace sdl2wrap::video
+} // namespace video
+} // namespace sdl2wrap

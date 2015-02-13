@@ -41,4 +41,5 @@ Color& Color::operator=(Color&&) noexcept = default;
 // ====== freestanding: ======
 
 
-}} // namespace sdl2wrap::video
+} // namespace video
+} // namespace sdl2wrap

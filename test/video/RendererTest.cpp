@@ -28,7 +28,6 @@
 #include "gmock/gmock.h"
 
 #include "video/Window.h"
-#include "video/RenderRect.h"
 #include "video/Surface.h"
 #include "video/Texture.h"
 
@@ -136,7 +135,7 @@ using ::testing::Between;
 class RendererTest_UsesSDL : public Test
 {
 public:
-	RendererTest_UsesSDL() : w("Test"), r(w.createRenderer(false)) {}
+	RendererTest_UsesSDL() : w("Test"), r(w.createRenderer(false)) { }
 
 	virtual void SetUp()
 	{
@@ -145,9 +144,9 @@ public:
 		}
 	}
 
-	virtual ~RendererTest_UsesSDL() {}
+	virtual ~RendererTest_UsesSDL() { }
 
-	virtual void TearDown() {}
+	virtual void TearDown() { }
 
 	Window w;
 	Renderer r;
@@ -164,7 +163,7 @@ TEST_F(RendererTest_UsesSDL, createTexture)
 TEST_F(RendererTest_UsesSDL, renderRectangle)
 {
 	auto rect = Rect({0, 0},
-	{50, 50});
+	{ 50, 50 });
 	r.render(rect);
 }
 

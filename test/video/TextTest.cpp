@@ -20,7 +20,7 @@
  *   along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "graphics/text/Text.h"
+#include "video/text/Text.h"
 
 #include "gtest/gtest.h"
 #include "gmock/gmock.h"

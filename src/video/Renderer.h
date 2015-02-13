@@ -98,5 +98,5 @@ private:
 
 };
 
-}
-} // namespace sdl2wrap::video
+} // namespace video
+} // namespace sdl2wrap

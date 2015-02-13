@@ -22,7 +22,9 @@
 
 #pragma once
 
-namespace pong {
+#include <string>
+
+namespace sdl2wrap {
 namespace video {
 namespace text {
 
@@ -34,7 +36,7 @@ public:
 	/*!
 	 * @brief Default constructor.
 	 */
-	constexpr Text() noexcept;
+	constexpr Text(const std::string& text) noexcept;
 
 	/*!
 	 * @brief Default copy constructor.

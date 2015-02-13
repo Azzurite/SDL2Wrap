@@ -25,7 +25,7 @@
 #include "SDL.h"
 
 namespace sdl2wrap {
-namespace resources {
+namespace resource {
 
 
 // ====== public: ======
@@ -48,6 +48,8 @@ Resource& Resource::operator=(Resource&&) noexcept = default;
 
 // ====== freestanding: ======
 
-} // namespace resources
+
+
+} // namespace resource
 } // namespace sdl2wrap
 

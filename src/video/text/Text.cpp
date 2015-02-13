@@ -22,7 +22,7 @@
 
 #include "video/text/Text.h"
 
-namespace pong {
+namespace sdl2wrap {
 namespace video {
 namespace text {
 
@@ -49,5 +49,5 @@ Text& Text::operator=(Text&&) noexcept = default;
 
 } // namespace text
 } // namespace video
-} // namespace pong
+} // namespace sdl2wrap
 

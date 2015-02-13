@@ -25,7 +25,7 @@
 #include "SDL.h"
 
 namespace sdl2wrap {
-namespace resources {
+namespace resource {
 
 
 class Resource
@@ -85,6 +85,6 @@ private:
 
 };
 
-} // namespace resources
+} // namespace resource
 } // namespace sdl2wrap
 

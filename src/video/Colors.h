@@ -26,7 +26,7 @@ namespace sdl2wrap {
 namespace video {
 
 
-class Colors
+class Colors final
 {
 public:
 
